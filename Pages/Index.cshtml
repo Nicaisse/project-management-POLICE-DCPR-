@@ -1,0 +1,159 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+        <div class="section-title">
+      <h2>Le grand rôle de la DCP</h2>
+        </div>
+      <p>La Direction Centrale de la Police Routière (DCPR) joue un rôle essentiel dans la préservation de la sécurité et de l'ordre sur nos routes. Avec pour mission principale de veiller à la fluidité et à la sécurité de la circulation, la DCPR met en œuvre des stratégies et des mesures pour prévenir les accidents, réduire les infractions et assurer le respect du code de la route.
+
+En tant que pilier de la sécurité routière, la DCPR déploie des moyens humains et technologiques de pointe pour surveiller et contrôler les axes routiers. Ses agents, formés et compétents, sont présents sur le terrain, prêts à intervenir rapidement en cas d'accident, d'infraction grave ou de situation dangereuse. Leur présence dissuasive et leur capacité à réagir rapidement contribuent à sauver des vies et à préserver l'intégrité physique des usagers de la route.</p>
+    </div>
+    <div class="col-md-6">
+      <img src="~/image/logo.jpg" class="img-fluid rounded" alt="Image de la police">
+    </div>
+  </div>
+</div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="~/image/image1.jpg" class="d-block w-100" alt="Image de la police 1">
+            </div>
+            <div class="carousel-item">
+            <img src="~/image/image2.jpg" class="d-block w-100" alt="Image de la police 2">
+            </div>
+            <div class="carousel-item">
+            <img src="~/image/image4.jpg" class="d-block w-100" alt="Image de la police 3">
+            </div>
+             <div class="carousel-item">
+            <img src="~/image/image6.jpg" class="d-block w-100" alt="Image de la police 3">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+        </div>
+
+
+
+
+<style>
+    .carousel-item img {
+  max-height: 400px; 
+  object-fit: cover;
+  border-radius: 10px;
+  
+    }
+    .carousel-item {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.carousel-item.active {
+  opacity: 1;
+}
+        h1, h2, h3, h4, h5, h6 {
+        font-family: "Raleway", sans-serif;
+        }
+        .section-title {
+        text-align: center;
+        padding-bottom: 30px;
+        }
+        .section-title h2 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        color: #2c4964;
+        }
+        .section-title h2::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: #ddd;
+  bottom: 1px;
+  left: calc(50% - 60px);
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #1977cc;
+  bottom: 0;
+  left: calc(50% - 20px);
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+    .container {
+        @* max-width: 800px; *@
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .container.project-info{
+    font-size: large;
+    }
+
+    h2 {
+        color: #333;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        color: #666;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .project-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .project-info img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+
+    .project-details {
+        flex: 1;
+    }
+
+    .project-details h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .project-details p {
+        margin-bottom: 0;
+    }
+
+    .project-description {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+    }
+</style>
+
