@@ -1,0 +1,26 @@
+@page
+@model TESTASP_DCPR.Pages.Agent.acceuilAgent
+@{
+    ViewData["Title"] = "";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="text-center">
+    <label class="form-label"></label>
+    <h3 class="display-7">WELCOME TO YOU ADMINISTOR</h3>
+    <hr>
+    <a asp-page="./Create" class="btn btn-primary">AJOUTER UN NOUVEL AGENT</a>
+</div><br>
+
+<div class="text-center">
+    <label class="form-label"></label>
+   
+    <a asp-page="./Index" class="btn btn-primary">LISTE DE AGENTS</a>
+</div><br>
+
+<div class="text-center">
+    <label class="form-label"></label>
+   
+    <a asp-page="./SEARCH_AGENT" class="btn btn-primary">DETAILS SUR AGENT</a>
+</div>

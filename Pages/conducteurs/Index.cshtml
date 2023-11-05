@@ -1,0 +1,123 @@
+@page
+@model TESTASP_DCPR.Pages.conducteurs.IndexModel
+
+@{
+    ViewData["Title"] = "";
+}
+
+
+<div class="section-title">
+    <h2>LISTE DRIVER</h2>
+</div>
+<div class="text-center">
+    <a class="btn btn-primary" asp-page="./Create">ADD NEW DRIVER</a>
+</div>
+
+<div class="table-responsive">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                NO_DOSSIER
+            </th>
+            <th>
+                NOM
+            </th>
+            <th>
+               PRENOM
+            </th>
+            <th>
+                SEXE
+            </th>
+            <th>
+                 NIF
+            </th>
+            <th>
+                 NOMBRE CONTRAVENTION
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Conducteur) {
+        <tr>
+            <td>
+                @item.noDossier
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sexe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.compteur)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
+
+<style>
+
+
+
+.left-section {
+  flex: 1; /* La section de gauche occupera 1/2 de l'espace disponible */
+  padding: 20px;
+  /* Ajoutez ici les styles spécifiques à la section de gauche (par exemple, pour l'image) */
+}
+h1, h2, h3, h4, h5, h6 {
+        font-family: "Raleway", sans-serif;
+        }
+        .section-title {
+        text-align: center;
+        padding-bottom: 30px;
+        }
+        .section-title h2 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        color: #2c4964;
+        }
+        .section-title h2::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: #ddd;
+  bottom: 1px;
+  left: calc(50% - 60px);
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #1977cc;
+  bottom: 0;
+  left: calc(50% - 20px);
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+
+    
+</style>

@@ -1,0 +1,107 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TESTASP_DCPR</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TESTASP_DCPR.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                 <img src="~/image/logo.jpg" alt="Logo" class="navbar-logo d-inline-block align-top" width="60" height="60" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                                                 @if (User?.Identity?.IsAuthenticated ?? false)
+{
+                    <ul class="navbar-nav flex-grow-1">
+                                <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    SECTION DCPR
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-page="/Agent/Create">ADD AGENT</a></li>
+                                    <li><a class="dropdown-item" asp-page="/Agent/Index">LIST AGENT</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-page="/Agent/SEARCH_AGENT">LISTE DE CONTRAVENTION EMIS PAR UN AGENT</a></li>
+                                </ul>
+                                </li>
+
+                                 <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    SECTION DRIVER
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-page="/conducteurs/Create">ADD A DRIVER</a></li>
+                                    <li><a class="dropdown-item" asp-page="/conducteurs/Index">LIST DRIVER</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-page="/conducteurs/SEARCH_YEAR">LISTES DES CONTRAVENTION D'UN CONDUCTEUR</a></li>
+                                </ul>
+                                </li>
+                                
+                                 <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    DGI
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-page="/Dgi/Etape1">CONTRAVENTION PAYMENT</a></li>
+                                    <li><a class="dropdown-item" asp-page="/Dgi/Index">tableau dgi</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                </ul>
+                                </li>
+   
+  
+
+
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    CONTRAVENTION
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-page="/contravention/Control">GIVE CONTRAVENTION</a></li>
+                                    <li><a class="dropdown-item" asp-page="/contravention/Index">tableau contravention</a></li>
+                                    <li><a class="dropdown-item" asp-page="/conducteurs/search_contravention">SECTION RECHERCHE</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                </ul>
+                            </li>
+                      
+                    </ul>
+                      }
+                    
+                </div>
+                
+            </div>
+            <partial style="float: right;" name="_LoginPartial" />
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - TESTASP_DCPR - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

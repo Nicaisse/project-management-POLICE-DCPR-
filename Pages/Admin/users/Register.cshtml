@@ -1,0 +1,149 @@
+@page
+@model TESTASP_DCPR.Pages.Admin.users.Register
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container">     
+    <div class="row">
+        <div class="col-md-6">
+            <img style="border-radius: 10px; border-left: 1px solid #ccc; /* Ligne verticale */" src="~/image/image2.jpg" alt="Logo" width="auto" height="500px" />
+        </div>
+    <div class="col-md-6 ">
+                <div class="section-title">
+                    <h2>SAVE AGENT</h2>
+                </div>
+        
+        <form style="padding-top: 40px;" method="post" class="display-flex-right mx-auto">
+            
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                 <label  class="control-label"></label>
+                <input asp-for="Input.Email" type="email" requiered  class="form-control" placeholder="Email"/>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label  class="control-label"></label>
+                <select asp-for="Input.affectation" class="form-select" required>
+                    <option value="DELMAS">DELMAS</option>
+                    <option value="PETION-VILLE">PETION-VILLE</option>
+                    <option value="CARREFOUR">CARREFOUR</option>
+                    <option value="TABARRE">TABARRE</option>
+                    <option value="CROIX-DES-BOUQUETS">CROIX-DES-BOUQUETS</option>
+                    <option value="BEL-AIR">BEL-AIR</option>
+                    <option value="MARTISSANT">MARTISSANT</option>
+                    
+                </select>
+                <span asp-validation-for="Input.affectation" ></span>
+            </div>
+          
+            <div class="form-group">
+                <label  class="control-label"></label>
+                <input asp-for="Input.nom" requiered class="form-control" placeholder="NOM"/>
+                <span asp-validation-for="Input.nom" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label  class="control-label"></label>
+                <input asp-for="Input.prenom" required  class="form-control" placeholder="PRENOM"/>
+                <span asp-validation-for="Input.prenom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"></label>
+                <select asp-for="Input.sexe"  required  class="form-select" >
+                    <option  value="">CHOISIR GENRE</option>
+                    <option  value="Feminin">Femme</option>
+                    <option  value="Masculin">Homme</option>
+                </select>
+                <span asp-validation-for="Input.sexe"  class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                 <label  class="control-label"></label>
+                <input asp-for="Input.Password" type="password" requiered  class="form-control" placeholder="password"/>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                 <label  class="control-label"></label>
+                <input asp-for="Input.ConfirmPassword" type="password" requiered  class="form-control" placeholder="confirm password"/>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div><br>
+             <div class="">
+                <label class="control-label"></label>
+                <input  id="form-control" type="submit" value="SAVE" class="btn btn-primary" />
+                <a  asp-page="./acceuilAgent" id="form-control"  class="btn btn-primary" a>BACK TO MENU</a>
+             <span class="text-danger"></span>
+            </div>
+            
+            @if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+
+
+          
+        </form>
+    </div>
+</div>
+</div>
+
+<style>
+
+
+
+.left-section {
+  flex: 1; /* La section de gauche occupera 1/2 de l'espace disponible */
+  padding: 20px;
+  /* Ajoutez ici les styles spécifiques à la section de gauche (par exemple, pour l'image) */
+}
+h1, h2, h3, h4, h5, h6 {
+        font-family: "Raleway", sans-serif;
+        }
+        .section-title {
+        text-align: center;
+        padding-bottom: 30px;
+        }
+        .section-title h2 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        color: #2c4964;
+        }
+        .section-title h2::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: #ddd;
+  bottom: 1px;
+  left: calc(50% - 60px);
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #1977cc;
+  bottom: 0;
+  left: calc(50% - 20px);
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+
+    
+</style>

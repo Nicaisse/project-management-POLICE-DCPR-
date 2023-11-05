@@ -1,0 +1,163 @@
+@page
+@model TESTASP_DCPR.Pages_contravention.CreateModel
+
+
+@{
+    ViewData["Title"] = "Create";
+    
+
+}
+
+
+<div class="section-title">
+    <h2>CONTRAVENTION</h2>
+</div>
+
+
+
+
+ 
+
+<div class="row justify-content-center">
+    <div class="col-md-12 mx-auto">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label  class="control-label">NO_DOSSIER</label>
+                  <input asp-for="Conducteur.noDossier" required readonly="readonly" class="form-control"  />
+                <span asp-validation-for="Conducteur.nif" class="text-danger"></span>
+              
+            </div>
+            <div class="form-group">
+                <label  class="control-label">NIF</label>
+                  <input asp-for="Conducteur.nif" readonly="readonly" class="form-control"  />
+                <span asp-validation-for="Conducteur.nif" class="text-danger"></span>
+              
+            </div>
+             <div class="form-group">
+                <label  class="control-label">PRENOM</label>
+                  <input asp-for="Conducteur.nom" readonly="readonly" class="form-control"  />
+                <span asp-validation-for="Conducteur.nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Code de l'Agent</label>
+                    <input asp-for="kontravention.codeAgent" class="form-control" value="@Model.codeAgent" readonly="readonly">
+                <span asp-validation-for="kontravention.codeAgent" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label  class="control-label"></label>
+                <input asp-for="kontravention.plaque" class="form-control" placeholder="PLAQUE" />
+                <span asp-validation-for="kontravention.plaque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"></label>
+                <input asp-for="kontravention.typeVehicule" required class="form-control" placeholder="TYPE VEHICULE"/>
+                <span asp-validation-for="kontravention.typeVehicule" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label"></label>
+                <input asp-for="kontravention.couleur" required class="form-control" placeholder="COULEUR" />
+                <span asp-validation-for="kontravention.couleur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"></label>
+                <input asp-for="kontravention.marque" required class="form-control" placeholder="marque" />
+                <span asp-validation-for="kontravention.marque" class="text-danger"></span>
+            </div>
+             
+            <div class="form-group">
+                <label  class="control-label"></label>
+                <input asp-for="kontravention.adresse" class="form-control" required placeholder="ADRESSE" />
+                <span asp-validation-for="kontravention.adresse" class="text-danger"  ></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label"></label>
+                <input asp-for="kontravention.articleViolation" class="form-control" required placeholder="VIOLATION ARTICLE" />
+                <span asp-validation-for="kontravention.articleViolation" class="text-danger" ></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label"></label>
+                <input asp-for="kontravention.montantAPayer" class="form-control" required placeholder="MONTANT A PAYER" />
+                <span asp-validation-for="kontravention.montantAPayer" class="text-danger"></span>
+            </div><br>
+           
+            <div class="form-group">
+                <label class="control-label"></label>
+                <input id="form-control" type="submit" value="Create" class="btn btn-primary" /><br>
+             
+            </div>
+ 
+                 
+        </form>
+    </div>
+</div> 
+      @if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}  
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<style>
+
+
+
+.left-section {
+  flex: 1; /* La section de gauche occupera 1/2 de l'espace disponible */
+  padding: 20px;
+  /* Ajoutez ici les styles spécifiques à la section de gauche (par exemple, pour l'image) */
+}
+h1, h2, h3, h4, h5, h6 {
+        font-family: "Raleway", sans-serif;
+        }
+        .section-title {
+        text-align: center;
+        padding-bottom: 30px;
+        }
+        .section-title h2 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        color: #2c4964;
+        }
+        .section-title h2::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: #ddd;
+  bottom: 1px;
+  left: calc(50% - 60px);
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #1977cc;
+  bottom: 0;
+  left: calc(50% - 20px);
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+
+    
+</style>

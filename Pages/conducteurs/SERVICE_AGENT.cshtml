@@ -1,0 +1,28 @@
+@page
+@model TESTASP_DCPR.Pages.conducteurs.SERVICE_AGENT
+@{
+    ViewData["Title"] = "";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="text-center">
+    <h2 class="display-8">WELCOME TO YOU</h2>
+    
+</div>
+
+<hr>
+
+
+    <div class="text-center">
+    <label class="form-label"></label>
+   
+    <a asp-page="./create" class="btn btn-primary">AJOUTER UN CONDUCTEUR</a>
+    <a asp-page="./Index" class="btn btn-primary">liste conducteur</a>
+    @* <a asp-page="/contravention/Control" class="btn btn-primary">DONNER UNE CONTRAVENTION</a> *@
+    
+    <a asp-page="./search_contravention" class="btn btn-primary">SECTION DE TRIAGE CONTRAVENTION</a><br>
+
+
+
+</div><br>
