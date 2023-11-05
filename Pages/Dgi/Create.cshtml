@@ -1,0 +1,98 @@
+@page
+@model TESTASP_DCPR.Pages_Dgi.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="section-title">
+<h2>PAIEMENT FICHE</h2>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-4 mx-auto">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label class="control-label" >NO_FICHE DE CONTRAVENTION</label>
+                <input asp-for="Contravention.noFiche" class="form-control" readonly="readonly" />
+                <span asp-validation-for="Contravention.noFiche" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">MONTANT</label>
+                <input asp-for="Contravention.montantAPayer" readonly="readonly" class="form-control" />
+                <span asp-validation-for="DGI.montant" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">REMARQUE</label>
+                <input asp-for="DGI.remarque" class="form-control">
+                <span asp-validation-for="DGI.remarque" class="text-danger"></span>
+            </div><br>
+           
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a  class="btn btn-primary" asp-page="/conducteurs/SERVICE_AGENT">BACK TO MENU</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<style>
+
+
+
+.left-section {
+  flex: 1; /* La section de gauche occupera 1/2 de l'espace disponible */
+  padding: 20px;
+  /* Ajoutez ici les styles spécifiques à la section de gauche (par exemple, pour l'image) */
+}
+h1, h2, h3, h4, h5, h6 {
+        font-family: "Raleway", sans-serif;
+        }
+        .section-title {
+        text-align: center;
+        padding-bottom: 30px;
+        }
+        .section-title h2 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        color: #2c4964;
+        }
+        .section-title h2::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: #ddd;
+  bottom: 1px;
+  left: calc(50% - 60px);
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #1977cc;
+  bottom: 0;
+  left: calc(50% - 20px);
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+
+    
+</style>

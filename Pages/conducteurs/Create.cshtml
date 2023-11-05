@@ -1,0 +1,133 @@
+@page
+@model TESTASP_DCPR.Pages.conducteurs.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+    <div class="container">
+    <div class="row" >
+        <div class="col-md-6">
+            <img style="border-radius: 10px; border-left: 1px solid #ccc; /* Ligne verticale */" src="~/image/image7.jpg" alt="Logo" width="auto" height="500px" />
+        </div>
+         <div class="col-md-6 ">
+                <div class="section-title">
+                    <h2>SAVE DRIVER</h2>
+                </div>
+                      @if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+        <form style="padding-top: 40px;" method="post" class="display-flex-right mx-auto">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @* <div class="form-group">
+                <label  class="control-label"></label>
+                <input required asp-for="Conducteur.noDossier" class="form-control" placeholder="NO_DOSSIER" />
+                <span asp-validation-for="Conducteur.noDossier" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label  class="control-label"></label>
+                <input required asp-for="Conducteur.nom" class="form-control" placeholder="NOM" />
+                <span asp-validation-for="Conducteur.nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label"></label>
+                <input required asp-for="Conducteur.prenom" class="form-control" placeholder="PRENOM"  />
+                <span asp-validation-for="Conducteur.prenom" class="text-danger" ></span>
+            </div>
+
+           <div class="form-group"> 
+                <label class="control-label"></label>
+                <select required asp-for="Conducteur.sexe" class="form-select" >
+                    <option  value="">CHOISIR GENRE</option>
+                    <option asp-for="Conducteur.sexe" value="Feminin">Femme</option>
+                    <option asp-for="Conducteur.sexe" value="Masculin">Homme</option>
+                </select>
+                <span asp-validation-for="Conducteur.sexe" class="text-danger"></span>
+                <span asp-validation-for="Conducteur.sexe" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label  class="control-label"></label>
+                <input required asp-for="Conducteur.nif"  class="form-control"placeholder="NIF"  />
+                <span asp-validation-for="Conducteur.nif" class="text-danger"></span>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label"></label>
+                <input  id="form-control" type="submit" value="SAVE" class="btn btn-primary" />
+                <a class="btn btn-primary" asp-page="./SERVICE_AGENT">Back to menu</a>
+             <span class="text-danger"></span><br>
+            </div>
+
+        </form>
+    </div>
+    </div>
+</div>
+<style>
+
+
+
+.left-section {
+  flex: 1; /* La section de gauche occupera 1/2 de l'espace disponible */
+  padding: 20px;
+  /* Ajoutez ici les styles spécifiques à la section de gauche (par exemple, pour l'image) */
+}
+h1, h2, h3, h4, h5, h6 {
+        font-family: "Raleway", sans-serif;
+        }
+        .section-title {
+        text-align: center;
+        padding-bottom: 30px;
+        }
+        .section-title h2 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        color: #2c4964;
+        }
+        .section-title h2::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: #ddd;
+  bottom: 1px;
+  left: calc(50% - 60px);
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #1977cc;
+  bottom: 0;
+  left: calc(50% - 20px);
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+
+    
+</style>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
